@@ -35,7 +35,7 @@ class Race{
 	freezeRace = () =>{
 		this.participants.forEach((participant) => {
 			participant.diamond.removeEventListener("click", participant.move);
-			participant.setFrozen = true;
+			participant.setFrozen = true;	
 		});
 	};
 	resetRace = () =>{
@@ -46,6 +46,7 @@ class Race{
 			participant.updateScore();
 			if(participant.getFrozen === true){
 				participant.diamond.addEventListener("click", participant.move);
+				participant.setFrozen = false;
 			}
 		});
 	};
@@ -105,7 +106,7 @@ class Participant{
 		this.racePosition = int;
 	}
 	get getFrozen(){
-		return this.frozemainn;
+		return this.frozen;
 	}
 	set setFrozen(boolean){
 		this.frozen = boolean;
